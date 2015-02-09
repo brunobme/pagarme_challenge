@@ -32,7 +32,6 @@ $(document).ready(function() { // quando o jQuery estiver carregado...
                 form.get(0).submit();
             });
         }
-
         return false;
     });
 });
