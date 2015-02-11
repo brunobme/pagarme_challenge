@@ -35,3 +35,6 @@ $(document).ready(function() { // quando o jQuery estiver carregado...
         return false;
     });
 });
+
+//estudar json
+//Ajax

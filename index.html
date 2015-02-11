@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Minha primeira transação</title>
 	<meta charset="UTF-8">
@@ -36,40 +36,30 @@
         });
     </script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.1/angular.min.js"></script>
-    
-    <style type="text/css">
- input.ng-invalid.ng-touched {
-    border-color: #FA787E;
-  }
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.1/angular.min.js"></script>
+    <script>
+      angular.module('formExample', [])
+        .controller('ExampleController', ['$scope', function($scope) {
+          $scope.master = {};
 
- input.ng-valid.ng-touched {
-    border-color: #78FA89;
-  }
-</style>
-            <script>
-  angular.module('formExample', [])
-    .controller('ExampleController', ['$scope', function($scope) {
-      $scope.master = {};
+          $scope.update = function(user) {
+            $scope.master = angular.copy(user);
+          };
 
-      $scope.update = function(user) {
-        $scope.master = angular.copy(user);
-      };
+          $scope.reset = function() {
+            $scope.user = angular.copy($scope.master);
+          };
 
-      $scope.reset = function() {
-        $scope.user = angular.copy($scope.master);
-      };
-
-      $scope.reset();
-    }]);
-</script>
+          $scope.reset();
+        }]);
+    </script>
 
 </head>
 <body ng-app="formExample">
     <div id="page" ng-controller="ExampleController" class="center">
         <h1>Pagamento com Cartão de Crédito</h1>
         <p>Preencha os dados abaixo para gerar seu card_hash na <strong>Pagar.me</strong>.</p>
-        <form id="payment_form" action="" method="POST">
+        <form id="payment_form" action="https://api.pagar.me/1" method="POST">
             <fieldset>
                 <legend>Dados pessoais</legend>
                 <div  class="data_group col-12">
@@ -116,7 +106,7 @@
                 </div>
             </fieldset>  
             <fieldset>
-                <script>
+               <!--<script>
                  $(document).ready(function(){
                     $("#show_card").click(function(){
                         $("#card").show();
@@ -127,14 +117,14 @@
                         $("#card").hide();
                     });
                 });   
-                </script>
+                </script> -->
                 <legend><h4 id="show_card">Cartão de crédito</h4></legend>
                 <!-- <legend><h4 id="show_billet">Boleto</h4></legend> -->
                 <div id="card">
                     <div class="col-6">
                         <div class="data">
                             <label for="card_number">Número do cartão:</label>
-                            <input type="text"  id="card_number">
+                            <input  type="text"  id="card_number">
                         </div>
                         <div class="data">
                             <label for="card_holder_name">Nome (como escrito no cartão): </label>
@@ -144,7 +134,7 @@
                     <div class="col-6">
                         <div class="data">
                             <label for="card_expiration">Data de expiração: </label>
-                            <input type="text" maxlength="2" size="2"id="card_expiration_month"/> <span>/</span>
+                            <input type="text" maxlength="2" size="2" id="card_expiration_month"/> <span>/</span>
                             <input type="text" maxlength="2" size="2" id="card_expiration_year"/>
                         </div>
                         <div class="data">
