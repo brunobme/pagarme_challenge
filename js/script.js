@@ -22,7 +22,7 @@ $(document).ready(function() { // quando o jQuery estiver carregado...
 
         if(hasErrors) {
             // realiza o tratamento de errors
-            alert(fieldErrors);
+            alert("Preencha corretamente os dados do seu cartão");
         } else {
             // se não há erros, gera o card_hash...
             creditCard.generateHash(function(cardHash) {
